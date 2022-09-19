@@ -106,10 +106,6 @@ public class CityController extends TestBase {
         Faker f = new Faker();
         Integer testPrice = Integer.valueOf(f.numerify("####"));
 
-        Region region = new Region();
-        region.setId(null);
-        region.setName("");
-
         RequestCreate rc = new RequestCreate();
         rc.setCityAdmin(null);
         rc.setId(null);
@@ -120,7 +116,6 @@ public class CityController extends TestBase {
         rc.setPriceForHour(testPrice);
         rc.setCityAdmin(null);
         rc.setDiscountList(ImmutableList.of());
-        rc.setRegion(region);
 
         step("Добавить новый город",()->{
             int idNewCity = given()
@@ -146,12 +141,7 @@ public class CityController extends TestBase {
                         .then()
                         .spec(response200);
             });
-            step("Удалить данные удаленного города из БД",()-> bd.deleteCity(idNewCity));
+            step("Удалить данные города из БД",()-> bd.deleteCity(idNewCity));
         });
-
-
-
-
-
     }
 }

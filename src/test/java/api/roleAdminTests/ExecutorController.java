@@ -86,7 +86,7 @@ public class ExecutorController extends TestBase {
                 .then()
                 .spec(response200)
                 .extract().as(ResponseSchedule.class);
-        //    Assertions.assertEquals(expectMonthNameWithYear, r.getMonthNameWithYear());
+        Assertions.assertEquals(expectMonthNameWithYear, r.getMonthNameWithYear());
         Assertions.assertEquals(r.getDaysArray().size(), 7);
         for (int i = 0; i < r.getDaysArray().size(); i++) {
             Assertions.assertEquals(r.getDaysArray().get(i).getDayName(), expectDayName[i]);
