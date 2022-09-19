@@ -12,6 +12,5 @@ public class TestBase {
     static void setUp() {
         GetTokenAdmin  token = new GetTokenAdmin();
         tokenSuperAdmin = token.superAdminToken();
-
     }
 }
